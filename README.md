@@ -25,7 +25,7 @@ Langkah-langkah analisis yang dilakukan dalam proyek ini meliputi:
 6. Data Manipulation Menerapkan fungsi DATE, MONTH, serta fungsi string seperti CONCAT, LEFT, dan UPPER untuk keperluan normalisasi dan perbandingan.
 7. Subquery & Temporary Calculations Memanfaatkan subquery untuk menyimpan hasil kalkulasi sementara, seperti total revenue per customer atau daftar pelanggan aktif lintas kuartal.
 
-## Raw dataset link
+## 📂 Raw Dataset Link
 Data yang akan digunakan pada project kali ini adalah sebagai berikut.
 
 1. Tabel orders_1 : Berisi data terkait transaksi penjualan periode quarter 1 (Jan – Mar 2004)
