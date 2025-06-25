@@ -62,14 +62,13 @@ WHERE status = 'Shipped';
 
 
 - Total Penjualan dan Revenue pada Quarter-2
-
+<pre lang="markdown">
 SELECT
-	
- 
  	SUM(quantity) AS total_penjualan,
 	SUM(quantity * priceEach) AS revenue
 FROM orders_2
 WHERE status = 'Shipped';
+</pre>
 
 ![image](https://github.com/user-attachments/assets/4e73367d-dcdc-40d2-8754-b0f12858652e)
 
