@@ -50,12 +50,13 @@ Dari hasil analisis data pelanggan dan transaksi penjualan xyz.com selama kuarta
 1. Total Penjualan dan Revenue pada Quarter-1 (Jan, Feb, Mar) dan Quarter-2 (Apr,Mei,Jun)
 
 - Total Penjualan dan Revenue pada Quarter-1
-
+<pre lang="markdown">
 SELECT 
 	SUM(quantity) AS total_penjualan,
 	SUM(quantity * priceEach) AS revenue
 FROM orders_1
 WHERE status = 'Shipped';
+</pre>
 
 ![image](https://github.com/user-attachments/assets/2c4c8318-2cd4-4bf8-8d08-4dec0f5321f5)
 
