@@ -1,6 +1,11 @@
 # Project-Data-Analysis-for-B2B-Retail-Customer-Analytics-Report
 ![image](https://github.com/user-attachments/assets/20793271-f65d-4e64-a35d-3891a0703f7a)
 
+## ✨ Indentitas 
+- Nama		: Yayan Kurniawan
+- Linkedin	: linkedin.com/in/yayan-kurniawan
+- Judul Project	: Project Data Analysis for B2B Retail Customer Analytics Report
+  
 ## 📌 Project Overview
 Proyek ini bertujuan untuk menganalisis performa bisnis xyz.com, sebuah perusahaan rintisan B2B yang menjual produk ke sesama perusahaan. Sebagai perusahaan yang mengutamakan pengambilan keputusan berbasis data, xyz.com secara rutin mengadakan townhall untuk meninjau pencapaian tiap kuartal. Analisis ini difokuskan pada data penjualan dan pelanggan selama kuartal pertama dan kedua tahun 2004.
 
