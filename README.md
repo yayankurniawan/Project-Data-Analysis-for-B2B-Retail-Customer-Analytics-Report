@@ -43,10 +43,33 @@ Data yang akan digunakan pada project kali ini adalah sebagai berikut.
 4. Diagram skema database yang menjelaskan hubungan antar tiga tabel utama:
 ![image](https://github.com/user-attachments/assets/9566994b-8149-4155-a3ae-d33c7ef2cffb)
 
+## 📈 Insight & Findings
+
+Dari hasil analisis data pelanggan dan transaksi penjualan xyz.com selama kuartal 1 (Jan–Mar 2004) dan kuartal 2 (Apr–Jun 2004), diperoleh beberapa temuan penting berikut:
+
+1. Total Penjualan dan Revenue pada Quarter-1 (Jan, Feb, Mar) dan Quarter-2 (Apr,Mei,Jun)
+
+- Total Penjualan dan Revenue pada Quarter-1
+
+SELECT 
+	SUM(quantity) AS total_penjualan,
+	SUM(quantity * priceEach) AS revenue
+FROM orders_1
+WHERE status = 'Shipped';
+
+![image](https://github.com/user-attachments/assets/2c4c8318-2cd4-4bf8-8d08-4dec0f5321f5)
 
 
+- Total Penjualan dan Revenue pada Quarter-2
 
+SELECT
+	SUM(quantity) AS total_penjualan,
+	SUM(quantity * priceEach) AS revenue
+FROM orders_2
+WHERE status = 'Shipped';
 
+![image](https://github.com/user-attachments/assets/4e73367d-dcdc-40d2-8754-b0f12858652e)
 
-
+Pertumbuhan Penjualan & Revenue (Q1 ke Q2)
+Pada kuartal kedua tahun 2004, xyz.com mencatat penurunan total penjualan sebanyak 1.977 unit dibanding kuartal pertama. Dari sisi revenue, terjadi penurunan sebesar Rp192.030.990. Penurunan ini cukup signifikan dan dapat menjadi indikator awal adanya tantangan dalam performa bisnis, seperti penurunan permintaan, perubahan strategi, atau faktor eksternal lain yang memengaruhi perilaku pelanggan.
 
