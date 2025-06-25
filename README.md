@@ -1,12 +1,31 @@
 # Project-Data-Analysis-for-B2B-Retail-Customer-Analytics-Report
 ![image](https://github.com/user-attachments/assets/20793271-f65d-4e64-a35d-3891a0703f7a)
 
-Proyek ini disusun sebagai bagian dari pengembangan portofolio saya sebagai Data Analyst, dengan tujuan menampilkan kemampuan analisis data bisnis, terutama dalam konteks B2B Customer Analytics menggunakan SQL.
+## 📌 Project Overview
+Proyek ini bertujuan untuk menganalisis performa bisnis xyz.com, sebuah perusahaan rintisan B2B yang menjual produk ke sesama perusahaan. Sebagai perusahaan yang mengutamakan pengambilan keputusan berbasis data, xyz.com secara rutin mengadakan townhall untuk meninjau pencapaian tiap kuartal. Analisis ini difokuskan pada data penjualan dan pelanggan selama kuartal pertama dan kedua tahun 2004.
 
-## Latar Belakang
-xyz.com adalah perusahan rintisan B2B yang menjual berbagai produk tidak langsung kepada end user tetapi ke bisnis/perusahaan lainnya. Sebagai data-driven company, maka setiap pengambilan keputusan di xyz.com selalu berdasarkan data. Setiap quarter xyz.com akan mengadakan townhall dimana seluruh atau perwakilan divisi akan berkumpul untuk me-review performance perusahaan selama quarter terakhir.
+Melalui proyek ini, saya berupaya menjawab pertanyaan strategis berikut:
 
-## Dataset
+1. Bagaimana tren pertumbuhan penjualan antar kuartal?
+2. Apakah jumlah pelanggan menunjukkan peningkatan?
+3. Berapa banyak pelanggan yang telah melakukan transaksi?
+4. Kategori produk apa saja yang paling diminati?
+5. Seberapa besar tingkat retensi atau loyalitas pelanggan antarkuartal?
+
+Proyek ini dikembangkan menggunakan bahasa SQL untuk menggali insight yang mendalam, dengan pendekatan analitis yang sistematis dan dapat direplikasi.
+
+## 🛠️ Analysis Process
+Langkah-langkah analisis yang dilakukan dalam proyek ini meliputi:
+
+1. Data Extraction Menggunakan klausa SELECT ... FROM ... untuk mengambil data dari tabel customer, orders_1, dan orders_2.
+2. Filtering Data Menerapkan klausa WHERE dan operator logika untuk menyaring data relevan, misalnya hanya transaksi pada tahun 2004.
+3. Data Aggregation Menggunakan GROUP BY bersama fungsi agregat (SUM, COUNT, AVG) untuk menghitung total penjualan, jumlah pesanan, dan pelanggan aktif.
+4. Sorting Data Menerapkan ORDER BY untuk mengurutkan hasil analisis berdasarkan prioritas, seperti pelanggan dengan jumlah pembelian terbanyak.
+5. Combining Datasets Menggunakan UNION untuk menggabungkan data transaksi dari Q1 (orders_1) dan Q2 (orders_2) agar analisis dapat dilakukan secara menyeluruh.
+6. Data Manipulation Menerapkan fungsi DATE, MONTH, serta fungsi string seperti CONCAT, LEFT, dan UPPER untuk keperluan normalisasi dan perbandingan.
+7. Subquery & Temporary Calculations Memanfaatkan subquery untuk menyimpan hasil kalkulasi sementara, seperti total revenue per customer atau daftar pelanggan aktif lintas kuartal.
+
+## Raw dataset link
 Data yang akan digunakan pada project kali ini adalah sebagai berikut.
 
 1. Tabel orders_1 : Berisi data terkait transaksi penjualan periode quarter 1 (Jan – Mar 2004)
