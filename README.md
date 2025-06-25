@@ -45,11 +45,11 @@ Data yang akan digunakan pada project kali ini adalah sebagai berikut.
 
 ## 📈 Insight & Findings
 
-Dari hasil analisis data pelanggan dan transaksi penjualan xyz.com selama kuartal 1 (Jan–Mar 2004) dan kuartal 2 (Apr–Jun 2004), diperoleh beberapa temuan penting berikut:
-
 1. Bagaimana tren pertumbuhan penjualan antar kuartal?
 
-Total Penjualan dan Revenue pada Quarter-1 (Jan, Feb, Mar) dan Quarter-2 (Apr,Mei,Jun)
+Dari hasil analisis data pelanggan dan transaksi penjualan xyz.com selama kuartal 1 (Jan–Mar 2004) dan kuartal 2 (Apr–Jun 2004), diperoleh beberapa temuan penting berikut:
+
+**Total Penjualan dan Revenue pada Quarter-1 (Jan, Feb, Mar) dan Quarter-2 (Apr,Mei,Jun)**
 
 - Total Penjualan dan Revenue pada Quarter-1
 <pre lang="markdown">
@@ -74,7 +74,7 @@ WHERE status = 'Shipped';
 
 ![image](https://github.com/user-attachments/assets/4e73367d-dcdc-40d2-8754-b0f12858652e)
 
-Menghitung persentasi keseluruhan penjualan
+**Menghitung persentasi keseluruhan penjualan**
 <pre lang="markdown">
 SELECT
 	quarter,
@@ -89,7 +89,33 @@ GROUP BY quarter;
 </pre>
 ![image](https://github.com/user-attachments/assets/0c359027-1041-44a4-b065-af3470b10e37)
 
-Pertumbuhan Penjualan & Revenue (Q1 ke Q2)
+**Perhitungan Growth Penjualan dan Revenue**
 
-Pada kuartal kedua tahun 2004, xyz.com mencatat penurunan total penjualan sebanyak 1.977 unit dibanding kuartal pertama. Dari sisi revenue, terjadi penurunan sebesar Rp192.030.990. Penurunan ini cukup signifikan dan dapat menjadi indikator awal adanya tantangan dalam performa bisnis, seperti penurunan permintaan, perubahan strategi, atau faktor eksternal lain yang memengaruhi perilaku pelanggan.
+- %Growth Penjualan = (6717 – 8694)/8694 = -22%
+- %Growth Revenue = (607548320 – 799579310)/ 799579310 = -24%
 
+**Insight: tren pertumbuhan penjualan antar kuartal**
+Penjualan dan pendapatan xyz.com mengalami penurunan signifikan di kuartal kedua tahun 2004, yaitu sekitar 22% untuk jumlah unit terjual dan 24% dari sisi revenue. Hal ini bisa menjadi sinyal awal bahwa diperlukan evaluasi terhadap strategi penjualan, promosi, atau kepuasan pelanggan.
+
+2. Apakah jumlah pelanggan menunjukkan peningkatan?
+<pre lang="markdown">
+SELECT
+	QUARTER(createDate) AS quarter,
+	COUNT(DISTINCT(customerID)) AS total_customers
+FROM
+(SELECT
+	customerID,
+	createDate,
+	QUARTER(createDate) AS quarter
+FROM customer 
+WHERE createDate BETWEEN '2004-01-01' AND '2004-06-30') AS table_b
+GROUP BY QUARTER(createDate);
+</pre>
+
+ ![image](https://github.com/user-attachments/assets/712a7750-67c1-4e42-bb4c-7be6edb25e78)
+
+**Insight: Perubahan Jumlah Pelanggan**
+Alih-alih meningkat, jumlah pelanggan yang tercatat pada kuartal kedua justru mengalami penurunan sebanyak 8 pelanggan dibandingkan kuartal pertama.
+Penurunan dari 43 menjadi 35 ini menunjukkan bahwa selama Q2 tidak hanya tidak ada pertumbuhan jumlah pelanggan, tetapi juga kemungkinan terjadi penurunan akuisisi pelanggan baru atau adanya pelanggan yang tidak melanjutkan keterlibatannya.
+
+3. 
