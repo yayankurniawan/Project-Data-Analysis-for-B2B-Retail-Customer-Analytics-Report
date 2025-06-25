@@ -95,6 +95,7 @@ GROUP BY quarter;
 - %Growth Revenue = (607548320 – 799579310)/ 799579310 = -24%
 
 **Insight: tren pertumbuhan penjualan antar kuartal**
+
 Penjualan dan pendapatan xyz.com mengalami penurunan signifikan di kuartal kedua tahun 2004, yaitu sekitar 22% untuk jumlah unit terjual dan 24% dari sisi revenue. Hal ini bisa menjadi sinyal awal bahwa diperlukan evaluasi terhadap strategi penjualan, promosi, atau kepuasan pelanggan.
 
 2. Apakah jumlah pelanggan menunjukkan peningkatan?
@@ -115,6 +116,7 @@ GROUP BY QUARTER(createDate);
  ![image](https://github.com/user-attachments/assets/712a7750-67c1-4e42-bb4c-7be6edb25e78)
 
 **Insight: Perubahan Jumlah Pelanggan**
+
 Alih-alih meningkat, jumlah pelanggan yang tercatat pada kuartal kedua justru mengalami penurunan sebanyak 8 pelanggan dibandingkan kuartal pertama.
 Penurunan dari 43 menjadi 35 ini menunjukkan bahwa selama Q2 tidak hanya tidak ada pertumbuhan jumlah pelanggan, tetapi juga kemungkinan terjadi penurunan akuisisi pelanggan baru atau adanya pelanggan yang tidak melanjutkan keterlibatannya.
 
