@@ -120,4 +120,102 @@ GROUP BY QUARTER(createDate);
 Alih-alih meningkat, jumlah pelanggan yang tercatat pada kuartal kedua justru mengalami penurunan sebanyak 8 pelanggan dibandingkan kuartal pertama.
 Penurunan dari 43 menjadi 35 ini menunjukkan bahwa selama Q2 tidak hanya tidak ada pertumbuhan jumlah pelanggan, tetapi juga kemungkinan terjadi penurunan akuisisi pelanggan baru atau adanya pelanggan yang tidak melanjutkan keterlibatannya.
 
-3. 
+3.  Berapa banyak pelanggan yang telah melakukan transaksi?
+<pre lang="markdown">
+SELECT
+	quarter,
+	COUNT(DISTINCT(customerID)) AS total_customers
+FROM
+(SELECT
+	customerID,
+	createDate,
+	QUARTER(createDate) AS quarter
+FROM customer
+WHERE createDate BETWEEN '2004-01-01' AND '2004-06-30') AS tabel_b
+WHERE customerID IN(
+SELECT
+	DISTINCT(customerID)
+FROM orders_1 
+UNION
+SELECT 
+	DISTINCT(customerID)
+FROM orders_2) 
+GROUP BY quarter;
+</pre>
+![image](https://github.com/user-attachments/assets/a8a3c3c4-470e-455c-a2ea-5f110769768a)
+
+**Insight: Jumlah Pelanggan yang Melakukan Transaksi**
+
+Selama periode Januari hingga Juni 2004, jumlah pelanggan xyz.com yang sudah melakukan transaksi tercatat sebanyak:
+
+- 25 pelanggan pada kuartal pertama
+- 19 pelanggan pada kuartal kedua
+
+Ini menunjukkan adanya penurunan aktivitas pelanggan yang cukup mencolok di Q2. Meski sudah mendaftar, tidak semua pelanggan melanjutkan hingga tahap transaksi—dan tren tersebut sedikit menurun dari Q1 ke Q2. 
+
+4. Kategori produk apa saja yang paling diminati?
+<pre lang="markdown">
+SELECT *
+FROM
+	(SELECT
+		categoryID,
+		COUNT(DISTINCT(orderNumber)) AS total_order,
+		SUM(quantity) AS total_penjualan
+	FROM
+		(SELECT
+			productCode, 
+			orderNumber,
+			quantity,
+			status,
+			LEFT(productCode,3) AS categoryID
+		FROM orders_2
+		WHERE status = 'Shipped') AS tabel_c
+	GROUP BY categoryID) AS A
+ORDER BY total_order DESC;
+</pre>
+![image](https://github.com/user-attachments/assets/ad4c951d-1301-4998-bea2-ddeb3798fc66)
+
+**Insight: Kategori Produk yang Paling Diminati**
+
+Dari analisis transaksi pada kuartal kedua tahun 2004 (status Shipped), diperoleh bahwa:
+- Kategori S18 merupakan yang paling diminati, dengan 25 pesanan dan total penjualan 2.264 unit.
+- Diikuti oleh Kategori S24 sebanyak 21 pesanan dengan total penjualan 1.826 unit.
+- Kategori S32 dan S70 menunjukkan rasio pembelian yang cukup tinggi dibanding pesanan yang relatif lebih sedikit, menandakan potensi produk dengan volume besar per transaksi.
+
+Temuan ini mengindikasikan bahwa S18 dan S24 adalah kategori produk utama yang mendorong penjualan selama periode tersebut. 
+
+5. Seberapa besar tingkat retensi atau loyalitas pelanggan antarkuartal?
+<pre lang="markdown">
+#Menghitung total unik customers yang transaksi di quarter_1
+SELECT COUNT(DISTINCT customerID) as total_customers FROM orders_1;
+#output = 25
+SELECT
+	'1' AS quarter,
+	COUNT(DISTINCT(customerID)) * 100/25 AS Q2
+FROM orders_1
+WHERE customerID IN(
+		SELECT
+			DISTINCT(customerID)
+		FROM orders_2);
+</pre>
+
+![image](https://github.com/user-attachments/assets/fdece51a-aefb-4336-b2a1-4f8971527440)
+
+**Insight: Retensi Pelanggan dan Dampaknya terhadap Penjualan**
+
+Berdasarkan data yang dianalisis, hanya 24% pelanggan dari kuartal pertama yang melakukan repeat order pada kuartal kedua. Dengan kata lain, 76% pelanggan tidak kembali bertransaksi, yang berkontribusi langsung terhadap penurunan volume penjualan pada Q2.
+
+Rendahnya tingkat repeat order ini mengindikasikan perlunya evaluasi strategi retensi pelanggan—baik dari sisi pemasaran, pengelolaan relasi pelanggan, maupun keunggulan produk yang ditawarkan. Perusahaan xyz.com disarankan untuk meninjau ulang pendekatan yang digunakan dalam mempertahankan pelanggan agar dapat meningkatkan loyalitas dan performa bisnis di kuartal berikutnya.
+
+## ✅ Kesimpulan
+Berdasarkan data yang telah kita peroleh melalui query SQL, Kita dapat menarik kesimpulan bahwa :
+
+1. Performance xyz.com menurun signifikan di quarter ke-2, terlihat dari nilai penjualan dan revenue yang drop hingga 20% dan 24%,
+2. Perolehan customer baru juga tidak terlalu baik, dan sedikit menurun dibandingkan quarter sebelumnya.
+3. Ketertarikan customer baru untuk berbelanja di xyz.com masih kurang, hanya sekitar 56% saja yang sudah bertransaksi. 4. Disarankan tim Produk untuk perlu mempelajari behaviour customer dan melakukan product improvement, sehingga conversion rate (register to transaction) dapat meningkat.
+5. Produk kategori S18 dan S24 berkontribusi sekitar 50% dari total order dan 60% dari total penjualan, sehingga xyz.com sebaiknya fokus untuk pengembangan category S18 dan S24.
+6. Retention rate customer xyz.com juga sangat rendah yaitu hanya 24%, artinya banyak customer yang sudah bertransaksi di quarter-1 tidak kembali melakukan order di quarter ke-2 (no repeat order).
+7. xyz.com mengalami pertumbuhan negatif di quarter ke-2 dan perlu melakukan banyak improvement baik itu di sisi produk dan bisnis marketing, jika ingin mencapai target dan positif growth di quarter ke-3. Rendahnya retention rate dan conversion rate bisa menjadi diagnosa awal bahwa customer tidak tertarik/kurang puas/kecewa berbelanja di xyz.com.
+
+
+
