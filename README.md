@@ -48,7 +48,8 @@ Data yang akan digunakan pada project kali ini adalah sebagai berikut.
 Dari hasil analisis data pelanggan dan transaksi penjualan xyz.com selama kuartal 1 (Jan–Mar 2004) dan kuartal 2 (Apr–Jun 2004), diperoleh beberapa temuan penting berikut:
 
 1. Bagaimana tren pertumbuhan penjualan antar kuartal?
-1.1 Total Penjualan dan Revenue pada Quarter-1 (Jan, Feb, Mar) dan Quarter-2 (Apr,Mei,Jun)
+
+Total Penjualan dan Revenue pada Quarter-1 (Jan, Feb, Mar) dan Quarter-2 (Apr,Mei,Jun)
 
 - Total Penjualan dan Revenue pada Quarter-1
 <pre lang="markdown">
@@ -73,7 +74,7 @@ WHERE status = 'Shipped';
 
 ![image](https://github.com/user-attachments/assets/4e73367d-dcdc-40d2-8754-b0f12858652e)
 
-1.2 Menghitung persentasi keseluruhan penjualan
+Menghitung persentasi keseluruhan penjualan
 <pre lang="markdown">
 SELECT
 	quarter,
@@ -88,6 +89,7 @@ GROUP BY quarter;
 </pre>
 ![image](https://github.com/user-attachments/assets/0c359027-1041-44a4-b065-af3470b10e37)
 
-1.3 Pertumbuhan Penjualan & Revenue (Q1 ke Q2)
+Pertumbuhan Penjualan & Revenue (Q1 ke Q2)
+
 Pada kuartal kedua tahun 2004, xyz.com mencatat penurunan total penjualan sebanyak 1.977 unit dibanding kuartal pertama. Dari sisi revenue, terjadi penurunan sebesar Rp192.030.990. Penurunan ini cukup signifikan dan dapat menjadi indikator awal adanya tantangan dalam performa bisnis, seperti penurunan permintaan, perubahan strategi, atau faktor eksternal lain yang memengaruhi perilaku pelanggan.
 
