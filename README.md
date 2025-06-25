@@ -6,21 +6,46 @@ Proyek ini disusun sebagai bagian dari pengembangan portofolio saya sebagai Data
 ## Latar Belakang
 xyz.com adalah perusahan rintisan B2B yang menjual berbagai produk tidak langsung kepada end user tetapi ke bisnis/perusahaan lainnya. Sebagai data-driven company, maka setiap pengambilan keputusan di xyz.com selalu berdasarkan data. Setiap quarter xyz.com akan mengadakan townhall dimana seluruh atau perwakilan divisi akan berkumpul untuk me-review performance perusahaan selama quarter terakhir.
 
-## Tugas dan Langkah
-Sebagai seorang data analyst, kamu dimintai untuk menyediakan data dan analisa mengenai kondisi perusahaan bulan terakhir untuk dipresentasikan di townhall tersebut. (Asumsikan tahun yang sedang berjalan adalah tahun 2004).
+## Dataset
+Tabel yang akan digunakan pada project kali ini adalah sebagai berikut.
 
-Adapun hal yang akan direview adalah :
-1. Bagaimana pertumbuhan penjualan saat ini?
-2. Apakah jumlah customers xyz.com semakin bertambah ?
-3. Dan seberapa banyak customers tersebut yang sudah melakukan transaksi?
-4. Category produk apa saja yang paling banyak dibeli oleh customers?
-5. Seberapa banyak customers yang tetap aktif bertransaksi?
+1. Tabel orders_1 : Berisi data terkait transaksi penjualan periode quarter 1 (Jan – Mar 2004)
++-------------+------------+--------------+-------------+---------+------------+-------------+----------+-----------+
+| orderNumber | orderDate  | requiredDate | shippedDate | status  | customerID | productCode | quantity | priceeach |
++-------------+------------+--------------+-------------+---------+------------+-------------+----------+-----------+
+|       10234 | 2004-03-30 | 2004-04-05   | 2004-04-02  | Shipped |        412 | S72_1253    |       40 |     45690 |
+|       10234 | 2004-03-30 | 2004-04-05   | 2004-04-02  | Shipped |        412 | S700_2047   |       29 |     83280 |
+|       10234 | 2004-03-30 | 2004-04-05   | 2004-04-02  | Shipped |        412 | S24_3816    |       31 |     78830 |
+|       10234 | 2004-03-30 | 2004-04-05   | 2004-04-02  | Shipped |        412 | S24_3420    |       25 |     65090 |
+|       10234 | 2004-03-30 | 2004-04-05   | 2004-04-02  | Shipped |        412 | S24_2841    |       44 |     67140 |
++-------------+------------+--------------+-------------+---------+------------+-------------+----------+-----------+ 
+3. Tabel Orders_2 : Berisi data terkait transaksi penjualan periode quarter 2 (Apr – Jun 2004)
++-------------+------------+--------------+-------------+---------+------------+-------------+----------+-----------+
+| orderNumber | orderDate  | requiredDate | shippedDate | status  | customerID | productCode | quantity | priceeach |
++-------------+------------+--------------+-------------+---------+------------+-------------+----------+-----------+
+|       10235 | 2004-04-02 | 2004-04-12   | 2004-04-06  | Shipped |        260 | S18_2581    |       24 |     81950 |
+|       10235 | 2004-04-02 | 2004-04-12   | 2004-04-06  | Shipped |        260 | S24_1785    |       23 |     89720 |
+|       10235 | 2004-04-02 | 2004-04-12   | 2004-04-06  | Shipped |        260 | S24_3949    |       33 |     55270 |
+|       10235 | 2004-04-02 | 2004-04-12   | 2004-04-06  | Shipped |        260 | S24_4278    |       40 |     63030 |
+|       10235 | 2004-04-02 | 2004-04-12   | 2004-04-06  | Shipped |        260 | S32_1374    |       41 |     90900 |
++-------------+------------+--------------+-------------+---------+------------+-------------+----------+-----------+ 
+5. Tabel Customer : Berisi data profil customer yang mendaftar menjadi customer xyz.com
++------------+----------------------------+-----------------+------------------+-----------+-----------+------------+
+| customerID | customerName               | contactLastName | contactFirstName | city      | country   | createDate |
++------------+----------------------------+-----------------+------------------+-----------+-----------+------------+
+|        103 | Atelier graphique          | Schmitt         | Carine           | Nantes    | France    | 2004-02-05 |
+|        112 | Signal Gift Stores         | King            | Jean             | Las Vegas | USA       | 2004-02-05 |
+|        114 | Australian Collectors, Co. | Ferguson        | Peter            | Melbourne | Australia | 2004-02-20 |
+|        119 | La Rochelle Gifts          | Labrune         | Janine           | Nantes    | France    | 2004-02-05 |
+|        121 | Baane Mini Imports         | Bergulfsen      | Jonas            | Stavern   | Norway    | 2004-02-05 |
++------------+----------------------------+-----------------+------------------+-----------+-----------+------------+ 
+6. Diagram skema database yang menjelaskan hubungan antar tiga tabel utama:
+![image](https://github.com/user-attachments/assets/9566994b-8149-4155-a3ae-d33c7ef2cffb)
 
-Langkah yang akan dilakukan :
-1. Menggunakan klausa “Select … From …” untuk mengambil data di database
-2. Menggunakan klausa Where dan Operator untuk menfilter data
-3. Menggunakan “group by”dan fungsi aggregat untuk aggregasi penjualan dan revenue
-4. Menggunakan “order by” untuk mengurutkan data
-5. Menggunakan “union” untuk menggabungkan tabel data penjualan
-5. Menggunakan “date and time function” dan fungsi text untuk data manipulation
-7. Menggunakan subquery untuk menyimpan hasil sementara untuk digunakan kembali dalam query.
+
+
+
+
+
+
+
